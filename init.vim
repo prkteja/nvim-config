@@ -11,11 +11,11 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'morhetz/gruvbox'
 Plug 'ghifarit53/tokyonight-vim'
-Plug 'lambdalisue/suda.vim'
-Plug 'vim-airline/vim-airline'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'projekt0n/github-nvim-theme'
+Plug 'lambdalisue/suda.vim'
+Plug 'hoob3rt/lualine.nvim'
 Plug 'chrisbra/Colorizer'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
@@ -23,15 +23,17 @@ Plug 'vim-python/python-syntax'
 Plug 'farmergreg/vim-lastplace'
 Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary' 
-Plug 'airblade/vim-gitgutter'
+Plug 'nvim-lua/plenary.nvim'
+Plug 'lewis6991/gitsigns.nvim'
+" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+Plug 'akinsho/nvim-bufferline.lua'
 Plug 'preservim/tagbar'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'preservim/nerdtree' |
-            \ Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mhinz/vim-startify'
 Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'ryanoasis/vim-devicons'
+Plug 'kyazdani42/nvim-web-devicons'
 " Initialize plugin system
 call plug#end()
 
@@ -53,27 +55,27 @@ let g:material_theme_style = 'palenight'
 let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme dracula
+" lua require('github-theme').setup()
 set cursorline
 " hi Normal guibg=NONE ctermbg=NONE
 let g:python_highlight_all = 1
 
-""""""""""""""""""""Airline""""""""""""""""""""""
+""""""""""""""""""""Nvim-lualine""""""""""""""""""""""
 
-let g:airline#extensions#whitespace#enabled = 0
-let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#tabline#show_buffers = 1
-let g:airline#extensions#tabline#show_splits = 0
-let g:airline#extensions#tabline#buffer_min_count = 1
-let g:airline#extensions#tabline#tab_min_count = 2
-let g:airline#extensions#tabline#formatter = 'unique_tail_improved'
-let g:airline#extensions#tabline#fnamemod = ':p:t'
-if !exists('g:airline_symbols')
-  let g:airline_symbols = {}
-endif
-let g:airline_symbols.linenr = '☰'
-let g:airline_symbols.maxlinenr = ''
-let g:webdevicons_enable_airline_tabline = 0
-let g:webdevicons_enable_airline_statusline = 0
+lua <<EOF
+require('lualine').setup{
+		options = {
+			theme = "dracula", 
+			section_separators = '', 
+			component_separators = '',
+		},
+		extensions = {'nvim-tree'}
+	}
+EOF
+
+"""""""""""""""""""""Galaxyline"""""""""""""""""""
+
+" source ~/.config/nvim/lua/galaxyline/galaxyline.lua
 
 """""""""""""""""""Nerdcommenter"""""""""""""""""""
 
@@ -110,44 +112,94 @@ map <C-c> <plug>NERDCommenterMinimal
 imap <C-_> <plug>NERDCommenterToggle
 imap <C-c> <plug>NERDCommenterMinimal
 
-"""""""""""""""""""""Nerd Tree"""""""""""""""""""""
+"""""""""""""""""""""Nvim tree"""""""""""""""""""""
 
-nnoremap <C-f> :tabdo :NERDTreeToggle<CR>
-nnoremap <C-t> :TagbarToggle<CR>
+let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache' ] "empty by default
+let g:nvim_tree_auto_open = 1 "0 by default, opens the tree when typing `vim $DIR` or `vim`
+let g:nvim_tree_auto_close = 1 "0 by default, closes the tree when it's the last window
+let g:nvim_tree_auto_ignore_ft = [ 'startify', 'dashboard' ] "empty by default, don't auto open tree on specific filetypes.
+let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
+let g:nvim_tree_follow = 1 "0 by default, this option allows the cursor to be updated when entering a buffer
+let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
+let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
+let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
+let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
+let g:nvim_tree_root_folder_modifier = ':~' "This is the default. See :help filename-modifiers for more options
+let g:nvim_tree_tab_open = 1 "0 by default, will open the tree when entering a new tab and the tree was previously open
+let g:nvim_tree_auto_resize = 1 "1 by default, will resize the tree to its saved width when opening a file
+let g:nvim_tree_disable_netrw = 1 "1 by default, disables netrw
+let g:nvim_tree_hijack_netrw = 1 "1 by default, prevents netrw from automatically opening when opening directories (but lets you keep its other utilities)
+let g:nvim_tree_group_empty = 0 " 0 by default, compact folders that only contain a single folder into one node in the file tree
+let g:nvim_tree_lsp_diagnostics = 0 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
+let g:nvim_tree_disable_window_picker = 0 "0 by default, will disable the window picker.
+let g:nvim_tree_hijack_cursor = 1 "1 by default, when moving cursor in the tree, will position the cursor at the start of the file on the current line
+let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
+let g:nvim_tree_symlink_arrow = ' -> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
+let g:nvim_tree_window_picker_exclude = {
+    \   'filetype': [
+    \     'packer',
+    \     'qf'
+    \   ],
+    \   'buftype': [
+    \     'terminal'
+    \   ]
+    \ }
+" Dictionary of buffer option names mapped to a list of option values that
+" indicates to the window picker that the buffer's window should not be
+" selectable.
+let g:nvim_tree_special_files = { 'README.md': 1, 'Makefile': 1, 'MAKEFILE': 1 } " List of filenames that gets highlighted with NvimTreeSpecialFile
+let g:nvim_tree_show_icons = {
+    \ 'git': 1,
+    \ 'folders': 1,
+    \ 'files': 1,
+    \ 'folder_arrows': 0,
+    \ }
+"If 0, do not show the icons for one of 'git' 'folder' and 'files'
+"1 by default, notice that if 'files' is 1, it will only display
+"if nvim-web-devicons is installed and on your runtimepath.
+"if folder is 1, you can also tell folder_arrows 1 to show small arrows next to the folder icons.
+"but this will not work when you set indent_markers (because of UI conflict)
 
-let NERDTreeMinimalUI = 1
-let NERDTreeQuitOnOpen = 1
+" default will show icon by default if no icon is provided
+" default shows no icon by default
+let g:nvim_tree_icons = {
+    \ 'default': '',
+    \ 'symlink': '',
+    \ 'git': {
+    \   'unstaged': "!",
+    \   'staged': "~",
+    \   'unmerged': "",
+    \   'renamed': "➜",
+    \   'untracked': "?",
+    \   'deleted': "-",
+    \   'ignored': "✕"
+    \   },
+    \ 'folder': {
+    \   'arrow_open': "",
+    \   'arrow_closed': "",
+    \   'default': "",
+    \   'open': "",
+    \   'empty': "",
+    \   'empty_open': "",
+    \   'symlink': "",
+    \   'symlink_open': "",
+    \   },
+    \   'lsp': {
+    \     'hint': "",
+    \     'info': "",
+    \     'warning': "",
+    \     'error': "",
+    \   }
+    \ }
 
-" Exit Vim if NERDTree is the only window left.
-autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() |
-    \ quit | endif
+nnoremap <C-f> :NvimTreeToggle<CR>
+nnoremap <leader>r :NvimTreeRefresh<CR>
+nnoremap <leader>n :NvimTreeFindFile<CR>
+" NvimTreeOpen and NvimTreeClose are also available if you need them
 
-" Open the existing NERDTree on each new tab.
-autocmd BufWinEnter * silent NERDTreeMirror
 
-" Start NERDTree when Vim starts with a directory argument.
-autocmd StdinReadPre * let s:std_in=1
-autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists('s:std_in') |
-	\ execute 'NERDTree' argv()[0] | wincmd p | Startify | execute 'cd '.argv()[0] | wincmd p | endif
-
-" If another buffer tries to replace NERDTree, put it in the other window, and bring back NERDTree.
-" autocmd BufEnter * if bufname('#') =~ 'NERD_tree_\d\+' && bufname('%') !~ 'NERD_tree_\d\+' && winnr('$') > 1 |
-"     \ let buf=bufnr() | buffer# | execute "normal! \<C-W>w" | execute 'buffer'.buf | endif
-
-" let NERDTreeCustomOpenArgs = {'file':{'where':'t','keepopen':1,'stay':0,'reuse':'all'}, 'dir':{}}
-let NERDTreeStatusline = "NERD"
-let g:NERDTreeGitStatusIndicatorMapCustom = {
-                \ 'Modified'  :'M',
-                \ 'Staged'    :'S',
-                \ 'Untracked' :'U',
-                \ 'Renamed'   :'R',
-                \ 'Unmerged'  :'═',
-                \ 'Deleted'   :'D',
-                \ 'Dirty'     :'X',
-                \ 'Ignored'   :'I',
-                \ 'Clean'     :'C',
-                \ 'Unknown'   :'?',
-                \ }
+" a list of groups can be found at `:help nvim_tree_highlight`
+highlight NvimTreeFolderIcon guibg=blue
 
 """"""""""""""""""""""""CoC"""""""""""""""""""""""
 
@@ -292,15 +344,55 @@ command! -bang -nargs=* GGrep
   \   'git grep --line-number '.shellescape(<q-args>), 0,
   \   fzf#vim#with_preview({'dir': systemlist('git rev-parse --show-toplevel')[0]}), <bang>0)
 
-""""""""""""""""""""""""gitgutter"""""""""""""""""""""""
+""""""""""""""""""""""""gitsigns"""""""""""""""""""""""
 
 set signcolumn=auto
-let g:gitgutter_sign_added = '▎'
-let g:gitgutter_sign_modified = '▎'
-let g:gitgutter_sign_removed = '▎'
-let g:gitgutter_sign_removed_first_line = '▸'
-let g:gitgutter_sign_removed_above_and_below = '▸'
-let g:gitgutter_sign_modified_removed = '▸'
+
+lua <<EOF
+require('gitsigns').setup {
+  signs = {
+    add          = {hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
+    change       = {hl = 'GitSignsChange', text = '▎', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+    delete       = {hl = 'GitSignsDelete', text = '_', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    changedelete = {hl = 'GitSignsChange', text = '▸', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
+  },
+  numhl = false,
+  linehl = false,
+  keymaps = {
+    -- Default keymap options
+    noremap = true,
+
+    ['n ]c'] = { expr = true, "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"},
+    ['n [c'] = { expr = true, "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"},
+
+    ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
+    ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
+    ['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
+    ['v <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
+    ['n <leader>hR'] = '<cmd>lua require"gitsigns".reset_buffer()<CR>',
+    ['n <leader>hp'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
+    ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
+
+    -- Text objects
+    ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+    ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
+  },
+  watch_index = {
+    interval = 1000,
+    follow_files = true
+  },
+  current_line_blame = false,
+  current_line_blame_delay = 1000,
+  current_line_blame_position = 'eol',
+  sign_priority = 6,
+  update_debounce = 100,
+  status_formatter = nil, -- Use default
+  word_diff = false,
+  use_internal_diff = true,  -- If luajit is present
+}
+EOF
 
 """""""""""""""""""""""toggleterm"""""""""""""""""""""""
 
@@ -324,6 +416,105 @@ require'nvim-treesitter.configs'.setup {
     -- Instead of true it can also be a list of languages
     additional_vim_regex_highlighting = false,
   },
+}
+EOF
+
+""""""""""""""""""""""nvim-bufferline""""""""""""""""""""
+
+lua << EOF
+require('bufferline').setup {
+  options = {
+    numbers = "none",
+--	mappings = true | false,
+--    close_command = "bdelete! %d",       -- can be a string | function, see "Mouse actions"
+--    right_mouse_command = "bdelete! %d", -- can be a string | function, see "Mouse actions"
+--    left_mouse_command = "buffer %d",    -- can be a string | function, see "Mouse actions"
+--    middle_mouse_command = nil,          -- can be a string | function, see "Mouse actions"
+    -- NOTE: this plugin is designed with this icon in mind,
+    -- and so changing this is NOT recommended, this is intended
+    -- as an escape hatch for people who cannot bear it for whatever reason
+    indicator_icon = '▎',
+    buffer_close_icon = '',
+    modified_icon = '●',
+    close_icon = '', -- '',
+    left_trunc_marker = '',
+    right_trunc_marker = '',
+    --- name_formatter can be used to change the buffer's label in the bufferline.
+    --- Please note some names can/will break the
+    --- bufferline so use this at your discretion knowing that it has
+    --- some limitations that will *NOT* be fixed.
+    name_formatter = function(buf)  -- buf contains a "name", "path" and "bufnr"
+      -- remove extension from markdown files for example
+      if buf.name:match('%.md') then
+        return vim.fn.fnamemodify(buf.name, ':t:r')
+      end
+    end,
+    max_name_length = 18,
+    max_prefix_length = 15, -- prefix used when a buffer is de-duplicated
+    tab_size = 18,
+--    diagnostics = false | "nvim_lsp",
+--    diagnostics_indicator = function(count, level, diagnostics_dict, context)
+--      return "("..count..")"
+--    end,
+    -- NOTE: this will be called a lot so don't do any heavy processing here
+--    custom_filter = function(buf_number)
+--      -- filter out filetypes you don't want to see
+--      if vim.bo[buf_number].filetype ~= "<i-dont-want-to-see-this>" then
+--        return true
+--      end
+--      -- filter out by buffer name
+--      if vim.fn.bufname(buf_number) ~= "<buffer-name-I-dont-want>" then
+--        return true
+--      end
+--      -- filter out based on arbitrary rules
+--      -- e.g. filter out vim wiki buffer from tabline in your work repo
+--      if vim.fn.getcwd() == "<work-repo>" and vim.bo[buf_number].filetype ~= "wiki" then
+--        return true
+--      end
+--    end,
+    offsets = {{filetype = "NvimTree", text = "Files", highlight = "Directory", text_align = "left"}},
+    show_buffer_icons = true, -- disable filetype icons for buffers
+    show_buffer_close_icons = true,
+    show_close_icon = true,
+    show_tab_indicators = true,
+    persist_buffer_sort = true, -- whether or not custom sorted buffers should persist
+    -- can also be a table containing 2 custom separators
+    -- [focused and unfocused]. eg: { '|', '|' }
+    separator_style = "thin",
+    enforce_regular_tabs = false,
+    always_show_bufferline = true,
+--    sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
+--      -- add custom logic
+--      return buffer_a.modified > buffer_b.modified
+--    end
+  },
+  highlights = {
+--	fill = {
+--	   guibg = {
+--	     attribute = "bg",
+--		 highlight = "StatusLineNC"
+--	   }
+--	},
+    indicator_selected = {
+      guifg = {
+        attribute = "fg",
+        highlight = "Statement"
+      },
+	  guibg = "#393a59",
+	},
+	close_button_selected = {
+      guifg = {
+        attribute = "fg",
+        highlight = "Statement"
+      },
+	  guibg = "#393a59",
+	},
+	buffer_selected = {
+      guifg = normal_fg,
+	  guibg = "#393a59",
+      gui = "bold"
+    },
+  }
 }
 EOF
 

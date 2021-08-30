@@ -11,7 +11,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'joshdick/onedark.vim'
 Plug 'arcticicestudio/nord-vim'
-Plug 'ghifarit53/tokyonight-vim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'projekt0n/github-nvim-theme'
 Plug 'lambdalisue/suda.vim'
@@ -34,6 +34,9 @@ Plug 'mhinz/vim-startify'
 Plug 'akinsho/nvim-toggleterm.lua'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'kyazdani42/nvim-web-devicons'
+Plug 'lukas-reineke/indent-blankline.nvim'
+Plug 'karb94/neoscroll.nvim'
+Plug 'nvim-telescope/telescope.nvim'
 " Initialize plugin system
 call plug#end()
 
@@ -56,7 +59,7 @@ let g:tokyonight_style = 'storm' " available: night, storm
 let g:tokyonight_enable_italic = 1
 colorscheme dracula
 " lua require('github-theme').setup()
-set cursorline
+" set cursorline
 " hi Normal guibg=NONE ctermbg=NONE
 let g:python_highlight_all = 1
 
@@ -71,4 +74,6 @@ source ~/.config/nvim/config/gitsigns.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/toggleterm.vim
 source ~/.config/nvim/config/nvim-bufferline.lua
-
+source ~/.config/nvim/config/indent-blankline.lua
+source ~/.config/nvim/config/neoscroll.lua
+source ~/.config/nvim/config/telescope.lua

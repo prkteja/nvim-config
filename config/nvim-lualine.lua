@@ -8,7 +8,7 @@ require('lualine').setup{
 		lualine_a = {'mode'},
 		lualine_b = {'branch'},
 		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
-		lualine_x = {'encoding', 'fileformat', 'filetype'},
+		lualine_x = {'encoding', {'fileformat', icons_enabled = false}, 'filetype'},
 		lualine_y = {'progress'},
 		lualine_z = {'location'}
 	  },

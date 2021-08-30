@@ -58,7 +58,7 @@ require('bufferline').setup {
     -- [focused and unfocused]. eg: { '|', '|' }
     separator_style = "thin",
     enforce_regular_tabs = false,
-    always_show_bufferline = true,
+    always_show_bufferline = false,
 --    sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
 --      -- add custom logic
 --      return buffer_a.modified > buffer_b.modified
@@ -76,28 +76,48 @@ require('bufferline').setup {
         attribute = "fg",
         highlight = "Statement"
       },
-	  guibg = "#393a59",
+	  -- guibg = "#393a59",
+	  guibg = {
+		attribute = "bg",
+		highlight = "StatusLineNC"
+	  }
 	},
 	close_button_selected = {
       guifg = {
         attribute = "fg",
         highlight = "SpecialKey"
       },
-	  guibg = "#393a59",
+	  -- guibg = "#393a59",
+	  guibg = {
+		attribute = "bg",
+		highlight = "StatusLineNC"
+	  }
 	},
 	modified_selected = {
 	  guifg = {
         attribute = "fg",
         highlight = "Constant"
       },
-      guibg = "#393a59",
+      -- guibg = "#393a59",		
+	  guibg = {
+		attribute = "bg",
+		highlight = "StatusLineNC"
+	  }
 	}, 
 	duplicate_selected = {
-	  guibg = "#393a59",
+	  -- guibg = "#393a59",
+	  guibg = {
+		attribute = "bg",
+		highlight = "StatusLineNC"
+	  }
     },
 	buffer_selected = {
       guifg = normal_fg,
-	  guibg = "#393a59",
+	  -- guibg = "#393a59",
+	  guibg = {
+		attribute = "bg",
+		highlight = "StatusLineNC"
+	  },
       gui = "bold"
     },
   }

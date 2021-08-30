@@ -50,13 +50,13 @@ let g:nvim_tree_icons = {
     \ 'default': '',
     \ 'symlink': '',
     \ 'git': {
-    \   'unstaged': "!",
-    \   'staged': "~",
+    \   'unstaged': "",
+    \   'staged': "",
     \   'unmerged': "",
     \   'renamed': "➜",
-    \   'untracked': "?",
-    \   'deleted': "-",
-    \   'ignored': "✕"
+    \   'untracked': "",
+    \   'deleted': "",
+    \   'ignored': ""
     \   },
     \ 'folder': {
     \   'arrow_open': "",
@@ -76,7 +76,7 @@ let g:nvim_tree_icons = {
     \   }
     \ }
 
-nnoremap <C-f> :NvimTreeToggle<CR>
+nnoremap <silent> <C-f> :NvimTreeToggle<CR>
 nnoremap <leader>r :NvimTreeRefresh<CR>
 nnoremap <leader>n :NvimTreeFindFile<CR>
 " NvimTreeOpen and NvimTreeClose are also available if you need them
@@ -84,4 +84,4 @@ nnoremap <leader>n :NvimTreeFindFile<CR>
 " a list of groups can be found at `:help nvim_tree_highlight`
 highlight NvimTreeFolderIcon guibg=blue
 
-
+au BufEnter * if (&ft ==? "NvimTree") | set cursorline | endif

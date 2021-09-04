@@ -8,7 +8,18 @@ require('lualine').setup{
 		lualine_a = {'mode'},
 		lualine_b = {'branch'},
 		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
-		lualine_x = {'encoding', {'fileformat', icons_enabled = false}, 'filetype'},
+		lualine_x = {
+						{
+						  'diagnostics',
+						  -- table of diagnostic sources, available sources:
+						  -- nvim_lsp, coc, ale, vim_lsp
+						  sources = {'nvim_lsp'},
+						  -- displays diagnostics from defined severity
+						  sections = {'error', 'warn', 'info', 'hint'},
+						  symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+						}, 
+						'encoding', {'fileformat', icons_enabled = false}, 'filetype'
+					},
 		lualine_y = {'progress'},
 		lualine_z = {'location'}
 	  },

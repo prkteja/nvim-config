@@ -12,7 +12,7 @@ require('bufferline').setup {
     indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
-    close_icon = '', -- '',
+    close_icon = '',
     left_trunc_marker = '',
     right_trunc_marker = '',
     --- name_formatter can be used to change the buffer's label in the bufferline.
@@ -48,7 +48,7 @@ require('bufferline').setup {
 --        return true
 --      end
 --    end,
---    offsets = {{filetype = "NvimTree", text = "Files", highlight = "Directory", text_align = "left"}},
+    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -58,7 +58,7 @@ require('bufferline').setup {
     -- [focused and unfocused]. eg: { '|', '|' }
     separator_style = "thin",
     enforce_regular_tabs = false,
-    always_show_bufferline = false,
+    always_show_bufferline = true,
 --    sort_by = 'id' | 'extension' | 'relative_directory' | 'directory' | 'tabs' | function(buffer_a, buffer_b)
 --      -- add custom logic
 --      return buffer_a.modified > buffer_b.modified
@@ -76,50 +76,56 @@ require('bufferline').setup {
         attribute = "fg",
         highlight = "Statement"
       },
-	  -- guibg = "#393a59",
-	  guibg = {
-		attribute = "bg",
-		highlight = "StatusLineNC"
-	  }
+	  -- guibg = {
+	  --   attribute = "bg",
+	  --   highlight = "StatusLineNC"
+	  -- }
 	},
 	close_button_selected = {
-      guifg = {
-        attribute = "fg",
-        highlight = "SpecialKey"
-      },
-	  -- guibg = "#393a59",
-	  guibg = {
-		attribute = "bg",
-		highlight = "StatusLineNC"
-	  }
-	},
-	modified_selected = {
 	  guifg = {
-        attribute = "fg",
-        highlight = "Constant"
-      },
-      -- guibg = "#393a59",		
-	  guibg = {
-		attribute = "bg",
-		highlight = "StatusLineNC"
-	  }
-	}, 
-	duplicate_selected = {
-	  -- guibg = "#393a59",
-	  guibg = {
-		attribute = "bg",
-		highlight = "StatusLineNC"
-	  }
-    },
-	buffer_selected = {
-      guifg = normal_fg,
-	  -- guibg = "#393a59",
-	  guibg = {
-		attribute = "bg",
-		highlight = "StatusLineNC"
+		attribute = "fg",
+		highlight = "Constant"
 	  },
-      gui = "bold"
-    },
+	  -- guibg = {
+	  --   attribute = "bg",
+	  --   highlight = "StatusLineNC"
+	  -- }
+	},
+	-- modified_selected = {
+	--   guifg = {
+    --     attribute = "fg",
+    --     highlight = "Constant"
+    --   },
+	--   guibg = {
+	--     attribute = "bg",
+	--     highlight = "StatusLineNC"
+	--   }
+	-- },
+	-- duplicate_selected = {
+	--   guibg = {
+	--     attribute = "bg",
+	--     highlight = "StatusLineNC"
+	--   }
+    -- },
+	-- pick_selected = {
+	--   guibg = {
+	--     attribute = "bg",
+	--     highlight = "StatusLineNC"
+	--   }
+    -- },
+	-- buffer_selected = {
+    --   guifg = normal_fg,
+	--   guibg = {
+	--     attribute = "bg",
+	--     highlight = "StatusLineNC"
+	--   },
+    --   gui = "bold"
+    -- },
   }
 }
 
+vim.cmd([[
+nnoremap <silent> <C-l> :BufferLineCycleNext<CR>
+nnoremap <silent> <C-h> :BufferLineCyclePrev<CR>
+nnoremap <silent> gb :BufferLinePick<CR>
+]])

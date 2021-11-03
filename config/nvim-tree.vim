@@ -1,12 +1,9 @@
-let g:nvim_tree_ignore = [ '.git', 'node_modules', '.cache', '.ccls-cache' ] "empty by default
 let g:nvim_tree_quit_on_open = 0 "0 by default, closes the tree when you open a file
 let g:nvim_tree_indent_markers = 1 "0 by default, this option shows indent markers when folders are open
-let g:nvim_tree_hide_dotfiles = 0 "0 by default, this option hides files and folders starting with a dot `.`
 let g:nvim_tree_git_hl = 1 "0 by default, will enable file highlight for git attributes (can be used without the icons).
 let g:nvim_tree_highlight_opened_files = 1 "0 by default, will enable folder and file icon highlight for opened files/directories.
 let g:nvim_tree_root_folder_modifier = ':~:t' "This is the default. See :help filename-modifiers for more options
 let g:nvim_tree_group_empty = 0 " 0 by default, compact folders that only contain a single folder into one node in the file tree
-let g:nvim_tree_lsp_diagnostics = 1 "0 by default, will show lsp diagnostics in the signcolumn. See :help nvim_tree_lsp_diagnostics
 let g:nvim_tree_disable_window_picker = 0 "0 by default, will disable the window picker.
 let g:nvim_tree_icon_padding = ' ' "one space by default, used for rendering the space between the icon and the filename. Use with caution, it could break rendering if you set an empty string depending on your font.
 let g:nvim_tree_symlink_arrow = ' -> ' " defaults to ' ➛ '. used as a separator between symlinks' source and target.
@@ -58,12 +55,6 @@ let g:nvim_tree_icons = {
     \   'empty_open': "",
     \   'symlink': "",
     \   'symlink_open': "",
-    \   },
-    \   'lsp': {
-    \     'hint': "•",
-    \     'info': "•",
-    \     'warning': "•",
-    \     'error': "•",
     \   }
     \ }
 
@@ -104,8 +95,16 @@ require'nvim-tree'.setup {
   hijack_cursor       = true,
   -- updates the root directory of the tree on `DirChanged` (when your run `:cd` usually)
   update_cwd          = false,
-  -- show lsp diagnostics in the signcolumn
-  lsp_diagnostics     = true,
+  -- diagnostics
+  diagnostics = {
+    enable = true,
+    icons = {
+      hint = "•",
+      info = "•",
+      warning = "•",
+      error = "•",
+    }
+  },
   -- update the focused file on `BufEnter`, un-collapses the folders recursively until it finds the file
   update_focused_file = {
     -- enables the feature
@@ -116,6 +115,10 @@ require'nvim-tree'.setup {
     -- list of buffer names / filetypes that will not update the cwd if the file isn't found under the current root directory
     -- only relevant when `update_focused_file.update_cwd` is true and `update_focused_file.enable` is true
     ignore_list = {}
+  },
+  filters = {
+    dotfiles = false,
+    custom = {'.git', 'node_modules', '.cache', '.ccls-cache'}
   },
   -- configuration options for the system open command (`s` in the tree by default)
   system_open = {

@@ -48,7 +48,8 @@ require('bufferline').setup {
 --        return true
 --      end
 --    end,
-    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0}},
+    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0},
+			   {filetype = "Outline", text = "", highlight = "Directory", text_align = "left", padding = 1}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -74,53 +75,15 @@ require('bufferline').setup {
     indicator_selected = {
       guifg = {
         attribute = "fg",
-        highlight = "Statement"
+        highlight = "Constant"
       },
-	  -- guibg = {
-	  --   attribute = "bg",
-	  --   highlight = "StatusLineNC"
-	  -- }
 	},
 	close_button_selected = {
 	  guifg = {
 		attribute = "fg",
-		highlight = "Constant"
+		highlight = "Error"
 	  },
-	  -- guibg = {
-	  --   attribute = "bg",
-	  --   highlight = "StatusLineNC"
-	  -- }
 	},
-	-- modified_selected = {
-	--   guifg = {
-    --     attribute = "fg",
-    --     highlight = "Constant"
-    --   },
-	--   guibg = {
-	--     attribute = "bg",
-	--     highlight = "StatusLineNC"
-	--   }
-	-- },
-	-- duplicate_selected = {
-	--   guibg = {
-	--     attribute = "bg",
-	--     highlight = "StatusLineNC"
-	--   }
-    -- },
-	-- pick_selected = {
-	--   guibg = {
-	--     attribute = "bg",
-	--     highlight = "StatusLineNC"
-	--   }
-    -- },
-	-- buffer_selected = {
-    --   guifg = normal_fg,
-	--   guibg = {
-	--     attribute = "bg",
-	--     highlight = "StatusLineNC"
-	--   },
-    --   gui = "bold"
-    -- },
   }
 }
 

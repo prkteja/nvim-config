@@ -2,7 +2,7 @@ require('gitsigns').setup {
   signs = {
     add          = {hl = 'GitSignsAdd'   , text = '▎', numhl='GitSignsAddNr'   , linehl='GitSignsAddLn'},
     change       = {hl = 'GitSignsChange', text = '▎', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
-    delete       = {hl = 'Error', text = '▁', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
+    delete       = {hl = 'GitSignsDelete', text = '▁', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     topdelete    = {hl = 'GitSignsDelete', text = '‾', numhl='GitSignsDeleteNr', linehl='GitSignsDeleteLn'},
     changedelete = {hl = 'GitSignsChange', text = '▸', numhl='GitSignsChangeNr', linehl='GitSignsChangeLn'},
   },
@@ -45,7 +45,7 @@ require('gitsigns').setup {
   update_debounce = 100,
   status_formatter = nil, -- Use default
   word_diff = false,
-  use_internal_diff = true,  -- If luajit is present
+  -- use_internal_diff = true,  -- If luajit is present
 }
 
 vim.cmd('set signcolumn=auto')

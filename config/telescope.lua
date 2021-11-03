@@ -14,14 +14,15 @@ require('telescope').setup{
     entry_prefix = "  ",
     initial_mode = "insert",
     selection_strategy = "reset",
-    sorting_strategy = "descending",
-    layout_strategy = "horizontal",
+    sorting_strategy = "ascending",
+    layout_strategy = "flex",
     layout_config = {
+	  prompt_position = 'top',
       horizontal = {
         mirror = false,
       },
       vertical = {
-        mirror = true,
+        mirror = false,
       },
     },
     file_sorter =  require'telescope.sorters'.get_fuzzy_file,
@@ -42,3 +43,8 @@ require('telescope').setup{
     buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker
   }
 }
+
+vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true})
+
+

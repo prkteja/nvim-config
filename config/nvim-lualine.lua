@@ -1,6 +1,6 @@
 require('lualine').setup{
 	options = {
-		theme = "dracula", 
+		theme = "dracula-nvim", 
 		section_separators = '', 
 		component_separators = '',
 	},
@@ -31,6 +31,6 @@ require('lualine').setup{
 		lualine_y = {},
 		lualine_z = {}
 	},
-	extensions = {'nvim-tree'}
+	extensions = {'nvim-tree', {sections = {lualine_a = {'filetype'}}, filetypes = {'Outline'}}}
 }
 

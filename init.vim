@@ -9,11 +9,6 @@ source ~/.vimrc
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-Plug 'joshdick/onedark.vim'
-Plug 'arcticicestudio/nord-vim'
-Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
-Plug 'dracula/vim', { 'as': 'dracula' }
-Plug 'projekt0n/github-nvim-theme'
 Plug 'lambdalisue/suda.vim'
 Plug 'hoob3rt/lualine.nvim'
 Plug 'chrisbra/Colorizer'
@@ -25,10 +20,7 @@ Plug 'preservim/nerdcommenter'
 Plug 'tpope/vim-commentary' 
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-" Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'preservim/tagbar'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mhinz/vim-startify'
 Plug 'akinsho/nvim-toggleterm.lua'
@@ -37,6 +29,16 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-compe'
+Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
+Plug 'hrsh7th/vim-vsnip'
+Plug 'hrsh7th/vim-vsnip-integ'
+Plug 'windwp/nvim-autopairs'
+Plug 'rmagatti/auto-session'
+Plug 'simrat39/symbols-outline.nvim'
+Plug 'dracula/vim', { 'as': 'dracula' }
+
 " Initialize plugin system
 call plug#end()
 
@@ -54,13 +56,12 @@ if (has('termguicolors'))
   set termguicolors
 endif
 
-let g:material_theme_style = 'palenight'
-let g:tokyonight_style = 'storm' " available: night, storm
-let g:tokyonight_enable_italic = 1
 colorscheme dracula
 " lua require('github-theme').setup()
 " set cursorline
 " hi Normal guibg=NONE ctermbg=NONE
+highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
+set fillchars+=vert:\▏ 
 let g:python_highlight_all = 1
 
 """""""""""""""""""Plugin Config""""""""""""""""""
@@ -68,7 +69,6 @@ let g:python_highlight_all = 1
 source ~/.config/nvim/config/nvim-lualine.lua
 source ~/.config/nvim/config/nerdcommenter.vim
 source ~/.config/nvim/config/nvim-tree.vim
-source ~/.config/nvim/config/coc.vim
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/gitsigns.lua
 source ~/.config/nvim/config/treesitter.lua
@@ -77,3 +77,10 @@ source ~/.config/nvim/config/nvim-bufferline.lua
 source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
+source ~/.config/nvim/config/lspconfig.vim
+source ~/.config/nvim/config/nvim-compe.lua
+source ~/.config/nvim/config/lsp-languages.lua
+source ~/.config/nvim/config/nvim-autopairs.lua
+source ~/.config/nvim/config/auto-session.lua
+source ~/.config/nvim/config/startify.vim
+source ~/.config/nvim/config/symbol-outline.lua

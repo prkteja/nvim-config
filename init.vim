@@ -37,6 +37,7 @@ Plug 'hrsh7th/vim-vsnip-integ'
 Plug 'windwp/nvim-autopairs'
 Plug 'rmagatti/auto-session'
 Plug 'simrat39/symbols-outline.nvim'
+Plug 'AckslD/nvim-neoclip.lua'
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Initialize plugin system
@@ -84,3 +85,4 @@ source ~/.config/nvim/config/nvim-autopairs.lua
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/symbol-outline.lua
+source ~/.config/nvim/config/neoclip.lua

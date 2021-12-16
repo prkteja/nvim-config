@@ -48,7 +48,7 @@ require('bufferline').setup {
 --        return true
 --      end
 --    end,
-    offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0},
+	offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0},
 			   {filetype = "Outline", text = "", highlight = "Directory", text_align = "left", padding = 1}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
@@ -72,11 +72,12 @@ require('bufferline').setup {
 --		 highlight = "StatusLineNC"
 --	   }
 --	},
-    indicator_selected = {
-      guifg = {
-        attribute = "fg",
-        highlight = "Constant"
-      },
+--	--------------dracula-----------------
+	indicator_selected = {
+	  guifg = {
+		attribute = "fg",
+		highlight = "Constant"
+	  },
 	},
 	close_button_selected = {
 	  guifg = {
@@ -84,6 +85,7 @@ require('bufferline').setup {
 		highlight = "Error"
 	  },
 	},
+--  --------------onedark-----------------
   }
 }
 

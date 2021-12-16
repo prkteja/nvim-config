@@ -29,8 +29,17 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
-Plug 'hrsh7th/nvim-compe'
+" Plug 'hrsh7th/nvim-compe'
+Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+" Plug 'hrsh7th/cmp-nvim-lsp'
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+" Plug 'hrsh7th/nvim-cmp'
+" Plug 'hrsh7th/cmp-vsnip'
 Plug 'WhoIsSethDaniel/toggle-lsp-diagnostics.nvim'
 Plug 'hrsh7th/vim-vsnip'
 Plug 'hrsh7th/vim-vsnip-integ'
@@ -39,6 +48,7 @@ Plug 'rmagatti/auto-session'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'navarasu/onedark.nvim'
 
 " Initialize plugin system
 call plug#end()
@@ -58,7 +68,6 @@ if (has('termguicolors'))
 endif
 
 colorscheme dracula
-" lua require('github-theme').setup()
 " set cursorline
 " hi Normal guibg=NONE ctermbg=NONE
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
@@ -74,15 +83,18 @@ source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/gitsigns.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/toggleterm.vim
-source ~/.config/nvim/config/nvim-bufferline.lua
 source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
+" source ~/.config/nvim/config/coc.vim
+source ~/.config/nvim/config/coq.lua
+" source ~/.config/nvim/config/nvim-compe.lua
+" source ~/.config/nvim/config/nvim-cmp.vim
 source ~/.config/nvim/config/lspconfig.vim
-source ~/.config/nvim/config/nvim-compe.lua
 source ~/.config/nvim/config/lsp-languages.lua
 source ~/.config/nvim/config/nvim-autopairs.lua
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim
+source ~/.config/nvim/config/nvim-bufferline.lua
 source ~/.config/nvim/config/symbol-outline.lua
 source ~/.config/nvim/config/neoclip.lua

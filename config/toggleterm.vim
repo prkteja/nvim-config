@@ -1,4 +1,4 @@
-nnoremap <M-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+nmap <M-t> :NvimTreeToggle <CR> <Cmd>exe v:count1 . "ToggleTerm"<CR> <M-k> :NvimTreeToggle <CR> :wincmd l <CR> :wincmd j <CR>
 inoremap <M-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 " tnoremap <Esc> <C-\><C-n>
 tnoremap <M-k> <C-\><C-n><Cmd>wincmd k<CR>

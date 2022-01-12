@@ -10,17 +10,25 @@ require('neoclip').setup({
 		set_reg = false,
 	},
 	keys = {
-		i = {
-		  select = '<cr>',
-		  paste = '<c-p>',
-		  paste_behind = '<c-k>',
-		  custom = {},
-		},
-		n = {
-		  select = '<cr>',
-		  paste = 'p',
-		  paste_behind = 'P',
-		  custom = {},
-		},
+		telescope = {
+          i = {
+            select = '<cr>',
+            paste = '<c-p>',
+            paste_behind = '<c-k>',
+            custom = {},
+          },
+          n = {
+            select = '<cr>',
+            paste = 'p',
+            paste_behind = 'P',
+            custom = {},
+          },
+        },
+        fzf = {
+          select = 'default',
+          paste = 'ctrl-p',
+          paste_behind = 'ctrl-k',
+          custom = {},
+        },
 	},
 })

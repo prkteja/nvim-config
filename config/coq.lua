@@ -11,8 +11,7 @@ vim.g.coq_settings = {
 		}
 	},
 	keymap = {
-		-- recommended = false,
+		recommended = true,
 		jump_to_mark = "<c-,>"
 	}
 }
-

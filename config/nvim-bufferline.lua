@@ -12,7 +12,7 @@ require('bufferline').setup {
     indicator_icon = '▎',
     buffer_close_icon = '',
     modified_icon = '●',
-    close_icon = '',
+    close_icon = '',
     left_trunc_marker = '',
     right_trunc_marker = '',
     --- name_formatter can be used to change the buffer's label in the bufferline.
@@ -48,8 +48,8 @@ require('bufferline').setup {
 --        return true
 --      end
 --    end,
-	offsets = {{filetype = "NvimTree", text = "", highlight = "Directory", text_align = "left", padding = 0},
-			   {filetype = "Outline", text = "", highlight = "Directory", text_align = "left", padding = 1}},
+	offsets = {{filetype = "NvimTree", text = "", highlight = "StatusLine", text_align = "left", padding = 1},
+			   {filetype = "Outline", text = "", highlight = "StatusLine", text_align = "left", padding = 1}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -66,12 +66,12 @@ require('bufferline').setup {
 --    end
   },
   highlights = {
---	fill = {
---	   guibg = {
---	     attribute = "bg",
---		 highlight = "StatusLineNC"
---	   }
---	},
+	-- fill = {
+	--    guibg = {
+	--      attribute = "bg",
+	--      highlight = "StatusLine"
+	--    }
+	-- },
 --	--------------dracula-----------------
 	indicator_selected = {
 	  guifg = {
@@ -85,7 +85,10 @@ require('bufferline').setup {
 		highlight = "Error"
 	  },
 	},
---  --------------onedark-----------------
+--  --------------onenord-----------------
+	-- indicator_selected = {
+	--   guifg = "#5294E2",
+	-- },
   }
 }
 

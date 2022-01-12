@@ -29,11 +29,11 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
 " Plug 'hrsh7th/nvim-compe'
-Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
-Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
+" Plug 'ms-jpq/coq_nvim', {'branch': 'coq'}
+" Plug 'ms-jpq/coq.artifacts', {'branch': 'artifacts'}
 " Plug 'hrsh7th/cmp-nvim-lsp'
 " Plug 'hrsh7th/cmp-buffer'
 " Plug 'hrsh7th/cmp-path'
@@ -49,6 +49,8 @@ Plug 'simrat39/symbols-outline.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'navarasu/onedark.nvim'
+Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
+Plug 'rmehri01/onenord.nvim', { 'branch': 'main' }
 
 " Initialize plugin system
 call plug#end()
@@ -66,12 +68,7 @@ endif
 if (has('termguicolors'))
   set termguicolors
 endif
-
-colorscheme dracula
-" set cursorline
-" hi Normal guibg=NONE ctermbg=NONE
-highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
-set fillchars+=vert:\▏ 
+source ~/.config/nvim/config/dracula.vim
 let g:python_highlight_all = 1
 
 """""""""""""""""""Plugin Config""""""""""""""""""
@@ -86,13 +83,13 @@ source ~/.config/nvim/config/toggleterm.vim
 source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
-" source ~/.config/nvim/config/coc.vim
-source ~/.config/nvim/config/coq.lua
-" source ~/.config/nvim/config/nvim-compe.lua
-" source ~/.config/nvim/config/nvim-cmp.vim
 source ~/.config/nvim/config/lspconfig.vim
 source ~/.config/nvim/config/lsp-languages.lua
-source ~/.config/nvim/config/nvim-autopairs.lua
+source ~/.config/nvim/config/coc.vim
+" source ~/.config/nvim/config/coq.lua
+" source ~/.config/nvim/config/nvim-compe.lua
+" source ~/.config/nvim/config/nvim-cmp.vim
+" source ~/.config/nvim/config/nvim-autopairs.lua
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/nvim-bufferline.lua

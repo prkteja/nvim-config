@@ -24,6 +24,7 @@ Plug 'akinsho/nvim-bufferline.lua'
 Plug 'kyazdani42/nvim-tree.lua'
 Plug 'mhinz/vim-startify'
 Plug 'akinsho/nvim-toggleterm.lua'
+Plug 'kassio/neoterm'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
 Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
@@ -80,6 +81,7 @@ source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/gitsigns.lua
 source ~/.config/nvim/config/treesitter.lua
 source ~/.config/nvim/config/toggleterm.vim
+source ~/.config/nvim/config/neoterm.vim
 source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua

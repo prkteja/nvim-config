@@ -113,6 +113,9 @@ nnoremap <silent> <M-l> :wincmd l<CR>
 nnoremap <silent> <M-j> :wincmd j<CR>
 nnoremap <silent> <M-k> :wincmd k<CR>
 
+nnoremap <M-d> <C-d>
+nnoremap <M-u> <C-u>
+
 inoremap <M-j> <Down>
 inoremap <M-k> <Up>
 inoremap <M-h> <Left>

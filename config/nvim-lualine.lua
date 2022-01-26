@@ -11,7 +11,7 @@ require('lualine').setup{
 		lualine_a = {'mode'},
 		lualine_b = {'branch'},
 		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
-		lualine_x = {
+		lualine_x = {'g:coc_status',
 						{
 						  'diagnostics',
 						  -- table of diagnostic sources, available sources:

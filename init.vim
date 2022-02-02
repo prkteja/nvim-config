@@ -48,6 +48,7 @@ Plug 'windwp/nvim-autopairs'
 Plug 'rmagatti/auto-session'
 Plug 'simrat39/symbols-outline.nvim'
 Plug 'AckslD/nvim-neoclip.lua'
+Plug 'petertriho/nvim-scrollbar'
 Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'navarasu/onedark.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
@@ -86,6 +87,7 @@ source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
 source ~/.config/nvim/config/lspconfig.vim
+source ~/.config/nvim/config/lsp-context.lua
 source ~/.config/nvim/config/lsp-languages.lua
 source ~/.config/nvim/config/coc.vim
 " source ~/.config/nvim/config/coq.lua
@@ -97,3 +99,4 @@ source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/nvim-bufferline.lua
 source ~/.config/nvim/config/symbol-outline.lua
 source ~/.config/nvim/config/neoclip.lua
+source ~/.config/nvim/config/nvim-scrollbar.lua

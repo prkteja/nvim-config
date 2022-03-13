@@ -8,6 +8,12 @@ highlight IncSearch guibg=#44475a guifg=#ffb86c gui=bold
 highlight IndentBlanklineContextChar guifg=#7068a0 gui=nocombine
 set fillchars+=vert:\▕ 
 
+" fixes
+hi VertSplit guibg=#1e1f29 guifg=bg
+hi StatusLine guibg=#282a36
+hi StatusLineNC guibg=#282a36
+hi GitSignsDelete guibg=bg guifg=#ff5555
+
 lua << EOF
 
 colors = {

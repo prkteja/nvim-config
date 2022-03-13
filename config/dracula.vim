@@ -39,5 +39,22 @@ colors = {
   scrollbar = "#2f313f"
 }
 
+lualine_theme = "dracula-nvim"
+
+bufferline_highlights = {
+	indicator_selected = {
+	  guifg = {
+		attribute = "fg",
+		highlight = "Constant"
+	  },
+	},
+	close_button_selected = {
+	  guifg = {
+		attribute = "fg",
+		highlight = "Error"
+	  },
+	},
+}
+
 EOF
 

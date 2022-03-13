@@ -48,8 +48,8 @@ require('bufferline').setup {
 --        return true
 --      end
 --    end,
-	offsets = {{filetype = "NvimTree", text = "", highlight = "StatusLine", text_align = "left", padding = 1},
-			   {filetype = "Outline", text = "", highlight = "StatusLine", text_align = "left", padding = 1}},
+	offsets = {{filetype = "NvimTree", text = "", highlight = "NvimTreeNormal", text_align = "left", padding = 1},
+			   {filetype = "Outline", text = "", highlight = "NvimTreeNormal", text_align = "left", padding = 1}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,
     show_close_icon = true,
@@ -65,31 +65,7 @@ require('bufferline').setup {
 --      return buffer_a.modified > buffer_b.modified
 --    end
   },
-  highlights = {
-	-- fill = {
-	--    guibg = {
-	--      attribute = "bg",
-	--      highlight = "StatusLine"
-	--    }
-	-- },
---	--------------dracula-----------------
-	indicator_selected = {
-	  guifg = {
-		attribute = "fg",
-		highlight = "Constant"
-	  },
-	},
-	close_button_selected = {
-	  guifg = {
-		attribute = "fg",
-		highlight = "Error"
-	  },
-	},
---  --------------onenord-----------------
-	-- indicator_selected = {
-	--   guifg = "#5294E2",
-	-- },
-  }
+  highlights = bufferline_highlights
 }
 
 vim.cmd([[

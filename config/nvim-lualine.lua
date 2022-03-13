@@ -1,9 +1,6 @@
 require('lualine').setup{
 	options = {
-		theme = "dracula-nvim",
-		-- theme = "onedark",
-		-- theme = "tokyonight",
-		-- theme = "onenord",
+		theme = lualine_theme,
 		section_separators = '', 
 		component_separators = '',
 	},

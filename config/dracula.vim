@@ -3,16 +3,21 @@ set cursorline
 " hi Normal guibg=NONE ctermbg=NONE
 highlight! EndOfBuffer ctermbg=bg ctermfg=bg guibg=bg guifg=bg
 highlight CursorLine guibg=#363848
-highlight Search guibg=#44475a guifg=#50fa7b gui=bold
-highlight IncSearch guibg=#44475a guifg=#ffb86c gui=bold
+highlight Visual guibg=#40106a
+highlight Search guibg=#383a59 guifg=#50fa7b gui=bold
+highlight IncSearch guibg=#383a59 guifg=#ffb86c gui=bold
 highlight IndentBlanklineContextChar guifg=#7068a0 gui=nocombine
-set fillchars+=vert:\▕ 
+set fillchars+=vert:\▕
+set fillchars+=vertleft:\▕
+set fillchars+=vertright:\▕
 
 " fixes
 hi VertSplit guibg=#1e1f29 guifg=bg
+hi WinSeparator gui=reverse cterm=reverse guibg=#1e1f29 guifg=bg
 hi StatusLine guibg=#282a36
 hi StatusLineNC guibg=#282a36
-hi GitSignsDelete guibg=bg guifg=#ff5555
+hi GitSignsDelete guibg=#282a36 guifg=#ff5555 
+hi PmenuSel guibg=#BD93F9 guifg=#1e1f29
 
 lua << EOF
 
@@ -48,6 +53,9 @@ colors = {
 lualine_theme = "dracula-nvim"
 
 bufferline_highlights = {
+	fill = {
+		guibg = colors.black
+	},
 	indicator_selected = {
 	  guifg = {
 		attribute = "fg",

@@ -5,7 +5,7 @@ require('lualine').setup{
 		component_separators = '',
 	},
 	sections = {
-		lualine_a = {'mode'},
+		lualine_a = {{'mode', fmt = function(str) return ' ' end, padding = { left = 0, right = 0 } }},
 		lualine_b = {'branch'},
 		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
 		lualine_x = {'g:coc_status',
@@ -18,10 +18,10 @@ require('lualine').setup{
 						  sections = {'error', 'warn', 'info', 'hint'},
 						  symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
 						}, 
-						'encoding', {'fileformat', icons_enabled = false}, 'filetype'
+						'encoding', {'fileformat', icons_enabled = false}, 'filetype', 'progress' 
 					},
-		lualine_y = {'progress'},
-		lualine_z = {'location'}
+		lualine_y = {'location'},
+		lualine_z = {}
 	  },
 	inactive_sections = {
 		lualine_a = {},
@@ -31,6 +31,5 @@ require('lualine').setup{
 		lualine_y = {},
 		lualine_z = {}
 	},
-	extensions = {'nvim-tree', {sections = {lualine_a = {'filetype'}}, filetypes = {'Outline'}}}
 }
 

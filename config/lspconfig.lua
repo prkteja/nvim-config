@@ -1,6 +1,7 @@
 require'lspconfig'.clangd.setup{}
 require'lspconfig'.pyright.setup{}
 require'lspconfig'.bashls.setup{}
+require'lspconfig'.gopls.setup{}
 
 vim.g.diagnostics_active = true
 function _G.toggle_diagnostics()
@@ -28,3 +29,9 @@ vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagn
 --   local hl = "LspDiagnosticsSign" .. type
 --   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
 -- end
+
+vim.diagnostic.config({
+  virtual_text = {
+    prefix = '●', -- Could be '●', '▎', 'x'
+  }
+})

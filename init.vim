@@ -28,8 +28,8 @@ Plug 'kyazdani42/nvim-web-devicons'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neovim/nvim-lspconfig'
+Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
 Plug 'hrsh7th/cmp-path'
@@ -70,15 +70,13 @@ source ~/.config/nvim/config/nvterm.lua
 source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
-source ~/.config/nvim/config/lspconfig.vim
-source ~/.config/nvim/config/lsp-context.lua
-source ~/.config/nvim/config/lsp-languages.lua
+source ~/.config/nvim/config/lspconfig.lua
+source ~/.config/nvim/config/lsp-keybindings.vim
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/nvim-bufferline.lua
 source ~/.config/nvim/config/symbol-outline.lua
 source ~/.config/nvim/config/neoclip.lua
-" source ~/.config/nvim/config/coc.vim
-source ~/.config/nvim/config/nvim-cmp.vim
+source ~/.config/nvim/config/nvim-cmp.lua
 source ~/.config/nvim/config/nvim-autopairs.lua
-source ~/.config/nvim/config/nvim-scrollbar.lua
+" source ~/.config/nvim/config/nvim-scrollbar.lua

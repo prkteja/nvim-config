@@ -1,3 +1,15 @@
+local lsp_context = function()
+  local f = require'nvim-treesitter'.statusline({
+    indicator_size = 300,
+    type_patterns = {"class", "function", "method", "interface", "type_spec", "table"}
+  })
+  local fun_name = string.format("%s", f) -- convert to string, it may be a empty ts node
+  if fun_name == "vim.NIL" or fun_name == "nil" or fun_name == "" then
+    return ""
+  end
+  return "󰘦  " .. fun_name
+end
+
 require('lualine').setup{
 	options = {
 		theme = lualine_theme,
@@ -8,6 +20,8 @@ require('lualine').setup{
 		lualine_a = {{'mode', fmt = function(str) return ' ' end, padding = { left = 0, right = 0 } }},
 		lualine_b = {'branch'},
 		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
+					-- {lsp_context, color={fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')}}},
+				
 		lualine_x = {'g:coc_status',
 						{
 						  'diagnostics',

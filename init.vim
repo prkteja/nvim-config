@@ -29,6 +29,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'simrat39/rust-tools.nvim'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'hrsh7th/cmp-buffer'
@@ -72,6 +73,7 @@ source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
 source ~/.config/nvim/config/lspconfig.lua
 source ~/.config/nvim/config/lsp-keybindings.vim
+source ~/.config/nvim/config/rust-tools.lua
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim
 source ~/.config/nvim/config/nvim-bufferline.lua

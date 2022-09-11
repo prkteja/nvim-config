@@ -73,3 +73,5 @@ nnoremap <silent> <C-l> :BufferLineCycleNext<CR>
 nnoremap <silent> <C-h> :BufferLineCyclePrev<CR>
 nnoremap <silent> gb :BufferLinePick<CR>
 ]])
+
+require("nvim-web-devicons").set_default_icon('󰎞 ', '#778899')

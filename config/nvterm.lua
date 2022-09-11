@@ -27,6 +27,7 @@ require("nvterm").setup({
 
 vim.api.nvim_set_keymap('n', '<M-t>', ':lua require("nvterm.terminal").toggle "horizontal"<CR>',  {noremap = true, silent = true})
 vim.api.nvim_set_keymap('t', '<M-t>', '<C-\\><C-n>:lua require("nvterm.terminal").toggle "horizontal"<CR>',  {noremap = true, silent = true})
-vim.api.nvim_set_keymap('t', '<M-;>', '<C-\\><C-n>',  {noremap = true, silent = true})
+-- vim.api.nvim_set_keymap('t', '<M-;>', '<C-\\><C-n>',  {noremap = true, silent = true})
+vim.api.nvim_set_keymap('t', '<M-k>', '<C-\\><C-n>:wincmd k<CR>',  {noremap = true, silent = true})
 vim.api.nvim_create_autocmd('TermOpen',  {pattern='*', command='set nocursorline'})
 vim.api.nvim_create_autocmd('TermOpen',  {pattern='*', command='setlocal signcolumn=yes'})

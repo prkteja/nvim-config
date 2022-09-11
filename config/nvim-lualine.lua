@@ -1,15 +1,4 @@
-local lsp_context = function()
-  local f = require'nvim-treesitter'.statusline({
-    indicator_size = 300,
-    type_patterns = {"class", "function", "method", "interface", "type_spec", "table"}
-  })
-  local fun_name = string.format("%s", f) -- convert to string, it may be a empty ts node
-  if fun_name == "vim.NIL" or fun_name == "nil" or fun_name == "" then
-    return ""
-  end
-  return "󰘦  " .. fun_name
-end
-
+local navic = require("nvim-navic")
 require('lualine').setup{
 	options = {
 		theme = lualine_theme,
@@ -19,10 +8,12 @@ require('lualine').setup{
 	sections = {
 		lualine_a = {{'mode', fmt = function(str) return ' ' end, padding = { left = 0, right = 0 } }},
 		lualine_b = {'branch'},
-		lualine_c = {'filename', {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}}},
-					-- {lsp_context, color={fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')}}},
+		lualine_c = {{'filename', symbols = {modified = ' 󰏫 ', readonly = ' 󰌾 '}}, 
+					{'diff', symbols = {added = '烙', modified = ' ', removed = ' '}},
+					{navic.get_location, cond = navic.is_available, 
+					color={fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')}}},
 				
-		lualine_x = {'g:coc_status',
+		lualine_x = {
 						{
 						  'diagnostics',
 						  -- table of diagnostic sources, available sources:
@@ -32,7 +23,8 @@ require('lualine').setup{
 						  sections = {'error', 'warn', 'info', 'hint'},
 						  symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
 						}, 
-						'encoding', {'fileformat', icons_enabled = false}, 'filetype', 'progress' 
+						'encoding', {'fileformat', symbols = {unix = '󰌽 ', windows = '󰍲 ', mac = '󰀵 '}}, 'filetype',
+						{function() return string.format('󰌼 %d', vim.api.nvim_buf_line_count(0)) end}
 					},
 		lualine_y = {'location'},
 		lualine_z = {}

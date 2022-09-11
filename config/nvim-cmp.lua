@@ -87,16 +87,24 @@ cmp.setup.cmdline(':', {
 
 -- Setup lspconfig.
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+local navic = require("nvim-navic")
+local on_attach = function(client, bufnr)
+        navic.attach(client, bufnr)
+    end
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
 require('lspconfig')['clangd'].setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach
 }
 require('lspconfig')['pyright'].setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach
 }
 require('lspconfig')['bashls'].setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach
 }
 require('lspconfig')['gopls'].setup {
-  capabilities = capabilities
+  capabilities = capabilities,
+  on_attach = on_attach
 }

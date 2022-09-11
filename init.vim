@@ -29,6 +29,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'SmiteshP/nvim-navic'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -61,7 +62,6 @@ let g:python_highlight_all = 1
 
 """""""""""""""""""Plugin Config""""""""""""""""""
 
-source ~/.config/nvim/config/nvim-lualine.lua
 source ~/.config/nvim/config/nerdcommenter.vim
 source ~/.config/nvim/config/nvim-tree.lua
 source ~/.config/nvim/config/fzf.vim
@@ -73,6 +73,8 @@ source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
 source ~/.config/nvim/config/lspconfig.lua
 source ~/.config/nvim/config/lsp-keybindings.vim
+source ~/.config/nvim/config/nvim-navic.lua
+source ~/.config/nvim/config/nvim-lualine.lua
 source ~/.config/nvim/config/rust-tools.lua
 source ~/.config/nvim/config/auto-session.lua
 source ~/.config/nvim/config/startify.vim

@@ -47,6 +47,7 @@ Plug 'AckslD/nvim-neoclip.lua'
 Plug 'petertriho/nvim-scrollbar'
 Plug 'NvChad/nvterm'
 Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'https://gitlab.com/__tpb/monokai-pro.nvim'
 Plug 'catppuccin/nvim', {'as': 'catppuccin'}
 
 " Initialize plugin system

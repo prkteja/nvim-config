@@ -1,4 +1,5 @@
 ### A simple neovim config that looks and works like most of the popular IDEs
+with a config directory structure that doesn't suck
 
 ![2022-09-18-010304_1920x1080_scrot](https://user-images.githubusercontent.com/48997655/190866003-bd4c78a7-b45e-4289-97c4-fd96dac1f466.png)
 

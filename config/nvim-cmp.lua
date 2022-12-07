@@ -35,7 +35,7 @@ cmp.setup({
   	  else
   		fallback() -- The fallback function sends a already mapped key. In this case, it's probably `<Tab>`.
   	  end
-  	end, { "i", "s" }),
+  	end, { "i", c = cmp.config.disable, "s" }),
 
     ["<S-Tab>"] = cmp.mapping(function()
       if cmp.visible() then

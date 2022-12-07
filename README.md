@@ -1,6 +1,4 @@
-### A simple neovim config focused on productivity
-This is my attempt to create a neovim config that looks and works like most of the popular IDEs<br>
-It also provides a simple base for people who want to start customizing neovim
+### A simple neovim config that looks and works like most of the popular IDEs
 
 ![2022-09-18-010304_1920x1080_scrot](https://user-images.githubusercontent.com/48997655/190866003-bd4c78a7-b45e-4289-97c4-fd96dac1f466.png)
 

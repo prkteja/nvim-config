@@ -20,3 +20,11 @@ with a config directory structure that doesn't suck
 - Jetbrains Mono Nerd Font
 - Material design icons
 - Vscode devicons
+
+#### Language servers used
+- clangd
+- pyright
+- bashls
+- gopls
+- rust_analyzer
+- more servers can be configured in ```config/lspconfig.lua```

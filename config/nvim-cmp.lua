@@ -44,6 +44,12 @@ cmp.setup({
     	feedkey("<Plug>(vsnip-jump-prev)", "")
       end
     end, { "i", "s" }),
+	['<Down>'] = cmp.mapping(cmp.mapping.select_next_item({
+      behavior = cmp.SelectBehavior.Select
+    }), {'i', c = cmp.config.disable}),
+    ['<Up>'] = cmp.mapping(cmp.mapping.select_prev_item({
+      behavior = cmp.SelectBehavior.Select
+    }), {'i', c = cmp.config.disable}),
   },
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },

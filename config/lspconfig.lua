@@ -18,10 +18,10 @@ end
 vim.api.nvim_set_keymap('n', '<leader>dd', ':call v:lua.toggle_diagnostics()<CR>',  {noremap = true, silent = true})
 
 vim.lsp.handlers['textDocument/publishDiagnostics'] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
-  virtual_text = true,
+  virtual_text = false,
   signs = false,
   underline = true,
-  update_in_insert = false,
+  update_in_insert = true,
 })
 
 -- local signs = { Error = "• ", Warning = "• ", Hint = "• ", Information = "• " }
@@ -35,3 +35,10 @@ vim.diagnostic.config({
     prefix = '●', -- Could be '●', '▎', 'x'
   }
 })
+
+function LspDiagnosticsFocus()
+    vim.api.nvim_command('set eventignore=WinLeave')
+    vim.api.nvim_command('autocmd CursorMoved <buffer> ++once set eventignore=""')
+    vim.diagnostic.open_float(nil, {focusable = true, scope = 'line', close_events = {"CursorMoved", "CursorMovedI", "BufHidden", "InsertCharPre", "WinLeave"}})
+end
+

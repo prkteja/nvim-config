@@ -11,6 +11,7 @@ with a config directory structure that doesn't suck
 - <kbd>leader</kbd>+<kbd>f</kbd> : file search
 - <kbd>leader</kbd>+<kbd>g</kbd> : string search
 - <kbd>Alt</kbd>+<kbd>g</kbd> : command history
+- <kbd>leader</kbd>+<kbd>e</kbd> : show error messages for current line
 - <kbd>leader</kbd>+<kbd>d</kbd><kbd>d</kbd> : toggle diagnostics
 
 #### Native LSP for diagnostics and code completion

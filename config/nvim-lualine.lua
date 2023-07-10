@@ -15,6 +15,12 @@ require('lualine').setup{
 				
 		lualine_x = {
 						{
+							"require('lsp-progress').progress()",
+							color={
+								fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')
+							}
+						},
+						{
 						  'diagnostics',
 						  -- table of diagnostic sources, available sources:
 						  -- nvim_lsp, coc, ale, vim_lsp
@@ -39,3 +45,10 @@ require('lualine').setup{
 	},
 }
 
+-- refresh lualine
+vim.cmd([[
+augroup lualine_augroup
+    autocmd!
+    autocmd User LspProgressStatusUpdated lua require("lualine").refresh()
+augroup END
+]])

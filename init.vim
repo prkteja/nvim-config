@@ -29,6 +29,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
+Plug 'linrongbin16/lsp-progress.nvim'
 Plug 'SmiteshP/nvim-navic'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'onsails/lspkind.nvim'
@@ -73,6 +74,7 @@ source ~/.config/nvim/config/indent-blankline.lua
 source ~/.config/nvim/config/neoscroll.lua
 source ~/.config/nvim/config/telescope.lua
 source ~/.config/nvim/config/lspconfig.lua
+source ~/.config/nvim/config/lsp-progress.lua
 source ~/.config/nvim/config/lsp-keybindings.vim
 source ~/.config/nvim/config/nvim-navic.lua
 source ~/.config/nvim/config/nvim-lualine.lua

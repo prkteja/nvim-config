@@ -12,7 +12,7 @@ set fillchars+=vertleft:\▕
 set fillchars+=vertright:\▕
 
 " fixes
-hi VertSplit guibg=#1e1f29 guifg=bg
+hi VertSplit guibg=#1e1f29 guifg=bg gui=reverse
 hi WinSeparator gui=reverse cterm=reverse guibg=#1e1f29 guifg=bg
 hi StatusLine guibg=#282a36
 hi StatusLineNC guibg=#282a36
@@ -54,7 +54,7 @@ lualine_theme = "dracula-nvim"
 
 bufferline_highlights = {
 	fill = {
-		guibg = colors.black
+		guibg = colors.menu
 	},
 	indicator_selected = {
 	  guifg = {

@@ -52,6 +52,7 @@ require('bufferline').setup {
 --      end
 --    end,
 	offsets = {{filetype = "NvimTree", text = "", highlight = "NvimTreeNormal", text_align = "left", padding = 1},
+			   {filetype = "neo-tree", text = "", highlight = "NeoTreeNormal", text_align = "center", padding = 1},
 			   {filetype = "Outline", text = "", highlight = "NvimTreeNormal", text_align = "left", padding = 1}},
     show_buffer_icons = true, -- disable filetype icons for buffers
     show_buffer_close_icons = true,

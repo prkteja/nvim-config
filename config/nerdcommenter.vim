@@ -26,9 +26,10 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not 
 let g:NERDToggleCheckAllLines = 1
 
-map <C-/> <plug>NERDCommenterToggle
-map <C-c> <plug>NERDCommenterMinimal
-imap <C-/> <plug>NERDCommenterToggle
-imap <C-c> <plug>NERDCommenterMinimal
+nmap <C-/> <plug>NERDCommenterToggle
+nmap <C-_> <plug>NERDCommenterToggle
+nmap <C-c> <plug>NERDCommenterMinimal
+" imap <C-/> <plug>NERDCommenterToggle
+" imap <C-c> <plug>NERDCommenterMinimal
 
 

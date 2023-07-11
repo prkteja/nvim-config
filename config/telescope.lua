@@ -46,6 +46,7 @@ require('telescope').setup{
 
 vim.api.nvim_set_keymap("n", "<leader>g", "<cmd>Telescope live_grep<CR>", { noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>f", "<cmd>Telescope find_files<CR>", { noremap = true})
+vim.api.nvim_set_keymap("n", "<leader>E", "<cmd>Telescope diagnostics<CR>", { noremap = true})
 vim.api.nvim_set_keymap("n", "<leader>c", "<cmd>Telescope neoclip plus<CR>", { noremap = true})
 
 

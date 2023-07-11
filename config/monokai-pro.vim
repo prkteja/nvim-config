@@ -15,7 +15,7 @@ vim.g.monokaipro_colors = { bg = "#1e1e1e" }
 lualine_theme = "monokaipro"
 bufferline_highlights = {
 	fill = {
-		bg = "#191919"
+		bg = "#141414"
 	},
 	indicator_selected = {
 	  fg = {
@@ -34,5 +34,9 @@ bufferline_highlights = {
 EOF
 
 colorscheme monokaipro
-hi NvimTreeVertSplit guibg=#191919 guifg=#191919
 hi Pmenu guibg=#191919
+hi TelescopeBorder guibg=#1e1e1e
+hi TelescopePromptBorder guibg=#1e1e1e
+hi NeoTreeNormal guibg=#191919
+hi NeoTreeNormalNC guibg=#191919
+hi NeoTreeWinSeparator guibg=#191919 guifg=#191919

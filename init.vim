@@ -21,10 +21,11 @@ Plug 'tpope/vim-commentary'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 Plug 'akinsho/nvim-bufferline.lua'
-Plug 'kyazdani42/nvim-tree.lua'
-Plug 'mhinz/vim-startify'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}  " We recommend updating the parsers on update
-Plug 'kyazdani42/nvim-web-devicons'
+Plug 'MunifTanjim/nui.nvim'
+Plug 'mhinz/vim-startify'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-neo-tree/neo-tree.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'karb94/neoscroll.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -66,7 +67,7 @@ let g:python_highlight_all = 1
 """""""""""""""""""Plugin Config""""""""""""""""""
 
 source ~/.config/nvim/config/nerdcommenter.vim
-source ~/.config/nvim/config/nvim-tree.lua
+source ~/.config/nvim/config/neo-tree.lua
 source ~/.config/nvim/config/fzf.vim
 source ~/.config/nvim/config/gitsigns.lua
 source ~/.config/nvim/config/treesitter.lua

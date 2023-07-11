@@ -8,18 +8,19 @@ require('lualine').setup{
 	sections = {
 		lualine_a = {{'mode', fmt = function(str) return ' ' end, padding = { left = 0, right = 0 } }},
 		lualine_b = {'branch'},
-		lualine_c = {{'filename', symbols = {modified = ' 󰏫 ', readonly = ' 󰌾 '}}, 
-					{'diff', symbols = {added = '烙', modified = ' ', removed = ' '}},
-					{navic.get_location, cond = navic.is_available, 
-					color={fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')}}},
-				
-		lualine_x = {
+		lualine_c = {
+						{'filename', symbols = {modified = ' 󰏫 ', readonly = ' 󰌾 '}}, 
+						-- {'diff', symbols = {added = '烙', modified = ' ', removed = ' '}},
+						{'diff', symbols = {added = '+', modified = '~', removed = '-'}},
 						{
 							"require('lsp-progress').progress()",
 							color={
 								fg=vim.api.nvim_command_output('echo synIDattr(synIDtrans(hlID("Comment")), "fg#")')
 							}
 						},
+					},
+				
+		lualine_x = {
 						{
 						  'diagnostics',
 						  -- table of diagnostic sources, available sources:
@@ -27,9 +28,12 @@ require('lualine').setup{
 						  sources = {'nvim_diagnostic'},
 						  -- displays diagnostics from defined severity
 						  sections = {'error', 'warn', 'info', 'hint'},
-						  symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
+						  -- symbols = {error = ' ', warn = ' ', info = ' ', hint = ' '}
 						}, 
-						'encoding', {'fileformat', symbols = {unix = '󰌽 ', windows = '󰍲 ', mac = '󰀵 '}}, 'filetype',
+						'encoding', 
+						-- {'fileformat', symbols = {unix = '󰌽 ', windows = '󰍲 ', mac = '󰀵 '}}, 
+						{'fileformat', symbols = {unix = 'LF', windows = 'CRLF', mac = 'CR'}}, 
+						'filetype',
 						{function() return string.format('󰌼 %d', vim.api.nvim_buf_line_count(0)) end}
 					},
 		lualine_y = {'location'},

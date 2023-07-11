@@ -1,3 +1,4 @@
+local navic=require("nvim-navic")
 local opts = {
   tools = { -- rust-tools options
 
@@ -27,7 +28,7 @@ local opts = {
 
       -- prefix for parameter hints
       -- default: "<-"
-      parameter_hints_prefix = "󰜱 ",
+      parameter_hints_prefix = "󰁍 ",
 
       -- prefix for all the other hints (type, chaining)
       -- default: "=>"
@@ -155,6 +156,9 @@ local opts = {
     -- standalone file support
     -- setting it to false may improve startup time
     standalone = true,
+	on_attach = function(client, bufnr)
+		navic.attach(client, bufnr)
+	end
   }, -- rust-analyzer options
 
   -- debugging stuff

@@ -31,6 +31,7 @@ Plug 'nvim-telescope/telescope.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'linrongbin16/lsp-progress.nvim'
 Plug 'SmiteshP/nvim-navic'
+Plug 'utilyre/barbecue.nvim'
 Plug 'simrat39/rust-tools.nvim'
 Plug 'onsails/lspkind.nvim'
 Plug 'hrsh7th/cmp-nvim-lsp'
@@ -86,4 +87,5 @@ source ~/.config/nvim/config/symbol-outline.lua
 source ~/.config/nvim/config/neoclip.lua
 source ~/.config/nvim/config/nvim-cmp.lua
 source ~/.config/nvim/config/nvim-autopairs.lua
+source ~/.config/nvim/config/barbecue.lua
 " source ~/.config/nvim/config/nvim-scrollbar.lua

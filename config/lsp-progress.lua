@@ -2,9 +2,9 @@ require('lsp-progress').setup({
     -- Spinning icons.
     --
     --- @type string[]
-    --- spinner = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
-    --- spinner = { "•   ", " •  ", "  • ", "   •" },
+    -- spinner = { "⣾", "⣽", "⣻", "⢿", "⡿", "⣟", "⣯", "⣷" },
 	spinner = { "-", "\\", "|", "/" },
+	-- spinner = { ".  ", ".. ", "...", " ..", "  .", "   " },
 
     -- Spinning update time in milliseconds.
     --
@@ -37,7 +37,7 @@ require('lsp-progress').setup({
     -- Max progress string length, by default -1 is unlimit.
     --
     --- @type integer
-    max_size = 70,
+    max_size = 100,
 
     -- Format series message.
     --
